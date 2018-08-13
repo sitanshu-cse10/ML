@@ -1,0 +1,46 @@
+{%load staticfiles %}
+<!DOCTYPE html>
+<html>
+<title>Sitanshu Marks Prediction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link href="{% static 'data/styles.css' %}" type="text/css" rel="stylesheet"/>
+<body>
+<!-- <button class="button button4">Click Here To know House Price ?.....</button> -->
+<div class="container">
+  <h1>Student Marks Prediction ....</h1>
+  <!-- Trigger the modal with a button -->
+  
+  
+        <center><h1 class="modal-title">Student Information...</h1></center>
+        </div>
+        <form id="myform">
+            <h1>1-->Enter the age of Student :</h1>  
+           <input type="text" id="hrs" name="hours" pattern="[0-9]" min="0" max="24" required title="Proivde valid value for studing hrs" ><br><br>
+           <center><input type="button" id="Result" value="*** Click Here To Predict ***"></center>
+         
+</body>
+<script>
+        $(document).ready(function(){
+        //set a click event on button
+        $("#Result").click(function(){
+        //select email value
+		
+		
+        var hrs=$("#hrs").val();
+        $.get('/predict',{hours:hrs},
+             function(res)
+			 {
+		     alert(res)
+			 });
+			 
+        
+        });
+        
+        });
+		
+</script>
+</html>
